@@ -38,7 +38,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "htmltidy": "^0.0.6",
     "lodash": "^4.17.4",
-    "npm-watch": "^0.5.2",
+    "npm-watch": "^0.1.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
