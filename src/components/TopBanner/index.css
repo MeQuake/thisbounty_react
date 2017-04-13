@@ -1,0 +1,26 @@
+.icon-moneybag.big
+  font-size: 48px
+  text-align: center
+  color: #FFF
+
+.icon-moneybag:before
+  content: "\e900"
+
+.top-banner
+  box-sizing: border-box
+  .top-banner .title
+    font-weight: 700
+    color: #f9f8f4
+    text-align: center
+    letter-spacing: 0.08em
+    margin: 0
+  .top-banner .desc
+    margin: 8px 0
+    font-weight: 400
+    color: #f9f8f4
+    opacity: 0.8
+    font-size: 14px
+    text-align: center
+    letter-spacing: 0.08em
+  .top-banner a
+    text-decoration: none
