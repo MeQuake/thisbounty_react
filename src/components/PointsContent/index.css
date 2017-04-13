@@ -1,0 +1,58 @@
+.points-content
+  background-color: #303135
+  width: 100%
+  color: #fff
+  .points-content ul
+    list-style: none
+    display: flex
+    flex-direction: row
+    padding: 0px 30px
+    flex-wrap: wrap
+    box-sizing: border-box
+    justify-content: center
+    .points-content ul li
+      display: inline-block
+      margin: 0px
+      padding: 20px
+      box-sizing: border-box
+      transition: 0.3s background-color, 0.3s box-shadow
+      border-radius: 5px
+      .points-content ul li .icon
+        width: 55px
+        height: 55px
+        display: inline-block
+        vertical-align: top
+        font-size: 55px
+        color: #777
+        text-shadow: -3px 1px #222
+      .points-content ul li .divider
+        height: 100%
+        width: 2px
+        background-color: #fff
+        opacity: 0.4
+        margin: 0 7px
+        display: inline-block
+      .points-content ul li .content
+        width: 250px
+        display: inline-block
+        vertical-align: top
+      .points-content ul li .point-title
+        font-weight: 700
+        font-size: 16px
+        margin: 0 0 8px 0
+        word-wrap: break-word
+        line-height: 1em
+      .points-content ul li .point-desc
+        margin: 0
+        font-weight: 400
+        font-size: 14px
+        opacity: 0.8
+
+.container
+  width: 100vw
+  max-width: 1100px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: auto
