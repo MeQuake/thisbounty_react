@@ -1,11 +1,12 @@
 import React from 'react';
+var FontAwesome = require('react-fontawesome');
 
 export default class Point extends React.Component {
   render() {
     return (
       <li className="point">
         <div className="icon">
-          <i className="fa { this.props.icon }" aria-hidden="true"></i>
+          <FontAwesome name={ this.props.icon } />
         </div>
         <div className="divider"></div>
         <div className="content">
