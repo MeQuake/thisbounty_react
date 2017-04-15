@@ -1,11 +1,11 @@
 {
-  "config": {
-    "presets": [
+  "neutrino": {
+    "use": [
       "neutrino-preset-karma",
       "neutrino-preset-airbnb-base",
       "neutrino-preset-react",
-      "neutrino-preset-postcss",
-      "./src/presets/lint-preset.js"
+      "neutrino-preset-web",
+      "neutrino-middleware-postcss"
     ]
   },
   "scripts": {
@@ -41,6 +41,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "htmltidy": "^0.0.6",
     "lodash": "^4.17.4",
+    "neutrino-middleware-postcss": "^2.0.2",
     "npm-watch": "^0.1.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -54,36 +55,14 @@
     "express": "^4.15.2",
     "express-react-views": "^0.10.2",
     "jsdom": "^9.12.0",
-    "neutrino": "^4.3.1",
-    "neutrino-preset-airbnb-base": "^4.3.1",
-    "neutrino-preset-karma": "^4.2.0",
+    "neutrino": "^5.5.1",
+    "neutrino-preset-airbnb-base": "^5.0.0",
+    "neutrino-preset-karma": "^5.0.0",
     "neutrino-preset-postcss": "^1.0.0",
-    "neutrino-preset-react": "^4.2.3",
+    "neutrino-preset-react": "^5.0.0",
     "postcss": "^5.2.16",
     "postcss-load-config": "^1.2.0",
     "suitcss": "^2.0.0",
     "suitcss-preprocessor": "^3.0.1"
-  },
-  "neutrino": {
-    "config": {
-      "module": {
-        "rule": {
-          "lint": {
-            "use": {
-              "eslint": {
-                "options": {
-                  "rules": {
-                    "linebreak-style": [
-                      "error",
-                      "windows"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }

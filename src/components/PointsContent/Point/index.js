@@ -1,5 +1,6 @@
 import React from 'react';
-var FontAwesome = require('react-fontawesome');
+
+const FontAwesome = require('react-fontawesome');
 
 export default class Point extends React.Component {
   render() {

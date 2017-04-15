@@ -1,5 +1,5 @@
 import React from 'react';
-import Point from './Point/index'
+import Point from './Point/index';
 
 require('./index.css');
 
