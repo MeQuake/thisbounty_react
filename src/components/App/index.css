@@ -7,7 +7,7 @@
 
 @media all and (max-width: 1000px)
   body .points-content ul li .content
-    width: 190px
+    width: 175px
 
 [class^="icon-"], [class*=" icon-"]
   /* use !important to prevent issues with browser extensions that change fonts */
