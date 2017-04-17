@@ -11,6 +11,7 @@ export default class AppComponent extends React.Component {
       <section id="points">
         <TopBanner />
         <ArrowBox />
+        <div id="table"></div>
         <PointsContent />
       </section>
     );
