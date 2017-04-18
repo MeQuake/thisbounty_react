@@ -2,6 +2,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 require('./index.css');
 require('./fa.min.js');
+require('./fa.css');
 
 const bounty = [
   {
