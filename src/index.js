@@ -7,7 +7,7 @@ import { bounty, actionFormatter, BootstrapTable, TableHeaderColumn } from './co
 if (typeof document === 'object') {
   render(<App />, document.getElementById('root'));
   render(
-    <BootstrapTable data={bounty} striped hover>
+    <BootstrapTable data={bounty} insertRow={false} striped hover>
         <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
         <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
         <TableHeaderColumn dataField="descr">Descr</TableHeaderColumn>
