@@ -21,6 +21,4 @@ if (typeof document === 'object') {
   );
 }
 
-ssr.transforms.push(ssr.insertBefore(<App />, '#root'));
-
 export default ssr;

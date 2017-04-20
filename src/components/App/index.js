@@ -4,6 +4,7 @@ import ArrowBox from '../ArrowBox/index';
 import PointsContent from '../PointsContent/index';
 
 require('./index.css');
+require('../AddBounty/index.js');
 
 export default class AppComponent extends React.Component {
   render() {

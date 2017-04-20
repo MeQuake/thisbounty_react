@@ -36,6 +36,8 @@
     "to": "build/dest.css"
   },
   "dependencies": {
+    "aws-api-gateway-client": "^0.2.3",
+    "aws-sdk": "^2.43.0",
     "babel-plugin-transform-assets": "^0.2.0",
     "babel-plugin-transform-require-ignore": "^0.1.0",
     "clean-webpack-plugin": "^0.1.16",
