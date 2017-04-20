@@ -5,7 +5,8 @@
       "neutrino-preset-airbnb-base",
       "neutrino-preset-react",
       "neutrino-preset-web",
-      "neutrino-middleware-postcss"
+      "neutrino-middleware-postcss",
+      "./src/presets/lint-preset"
     ]
   },
   "scripts": {
