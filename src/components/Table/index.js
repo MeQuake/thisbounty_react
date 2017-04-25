@@ -1,24 +1,51 @@
+import React from 'react';
+import AWS from 'aws-sdk';
+import apigClientFactory from 'aws-api-gateway-client';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 require('./index.css');
 require('./fa.min.js');
 require('./fa.css');
 
-const bounty = [
-  {
-    date: '17-Apr-2017 20:41 EST',
-    name: 'thisbounty.com -- Login',
-    descr: 'Try using this for FB login: https://www.npmjs.com/package/cognito-helper',
-    price: '$25.00',
-    claim: '0',
-    review: '0',
-    resources: '<i class="fa fa-github" aria-hidden="true"></i>',
-    action: '',
-  },
-];
+export default class Table extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data : [] };
+    this.getBounties();
+  }
 
-function actionFormatter(cell) {
-  return `<i class='fa fa-flag' aria-hidden='true' alt='Claim' data-bountyId='${cell}'></i>`;
+  getBounties () {
+    const apigClient = apigClientFactory.newClient({
+      invokeUrl: 'https://oomzdxsm40.execute-api.us-east-1.amazonaws.com/dev'
+    });
+    const params = {
+    };
+
+    apigClient.invokeApi(params, '/bounties', 'GET')
+    .then((result) => {
+      this.setState({
+        data: result.data
+      });
+    }).catch((response) => {
+    });
+  }
+
+  actionFormatter(cell) {
+    return `<i class='fa fa-flag' aria-hidden='true' alt='Claim' data-bountyId='${cell}'></i>`;
+  }
+
+  render() {
+    return (
+      <BootstrapTable data={ this.state.data } insertRow={true} striped hover>
+      <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
+      <TableHeaderColumn dataField="title">Name</TableHeaderColumn>
+      <TableHeaderColumn dataField="description">Descr</TableHeaderColumn>
+      <TableHeaderColumn dataField="price">Price</TableHeaderColumn>
+      <TableHeaderColumn dataField="claim">Claims</TableHeaderColumn>
+      <TableHeaderColumn dataField="review">Reviewing</TableHeaderColumn>
+      <TableHeaderColumn dataField="tools">Resources</TableHeaderColumn>
+      <TableHeaderColumn dataField="action" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
+      </BootstrapTable>
+    );
+  }
 }
-
-export { BootstrapTable, TableHeaderColumn, bounty, actionFormatter };
