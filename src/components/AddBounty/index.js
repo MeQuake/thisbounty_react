@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 import apigClientFactory from 'aws-api-gateway-client';
-import login, awsRequest from '../../utilities/thisbountyApi/index.min';
+import {login, awsRequest} from '../../utilities/thisbountyApi/index.min';
 
 /**
  * Add a bounty via remote API

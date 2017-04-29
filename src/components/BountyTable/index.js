@@ -1,7 +1,7 @@
 import React from 'react';
 import AWS from 'aws-sdk';
-import apigClientFactory from 'aws-api-gateway-client';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import {login, awsRequest} from '../../utilities/thisbountyApi/index.min';
 
 require('./index.css');
 require('./fa.min.js');
@@ -15,18 +15,20 @@ export default class Table extends React.Component {
   }
 
   getBounties () {
-    const apigClient = apigClientFactory.newClient({
-      invokeUrl: 'https://oomzdxsm40.execute-api.us-east-1.amazonaws.com/dev'
-    });
-    const params = {
-    };
-
-    apigClient.invokeApi(params, '/bounties', 'GET')
-    .then((result) => {
+    awsRequest({
+      invokeUrl:'https://oomzdxsm40.execute-api.us-east-1.amazonaws.com/dev',
+      endpoint:'/bounties/',
+      body:{},
+      method:'GET',
+      params:{},
+      additionalParams:{},
+    }).then((response) => {
+      console.log(response);
       this.setState({
-        data: result.data
+        data: response.data
       });
-    }).catch((response) => {
+    }).catch((error) => {
+      console.log(error);
     });
   }
 
@@ -47,5 +49,6 @@ export default class Table extends React.Component {
       <TableHeaderColumn dataField="action" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
+
   }
 }
