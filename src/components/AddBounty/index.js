@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 import apigClientFactory from 'aws-api-gateway-client';
-import login from '../../utilities/thisbountyApi/index.min';
+import login, awsRequest from '../../utilities/thisbountyApi/index.min';
 
 /**
  * Add a bounty via remote API
@@ -28,27 +28,4 @@ function addBounty() {
   });
 }
 
-/**
- * Make a request to an AWS gateway endpoint
- *
- * @param {Object} config Request config values: invokeUrl, endpoint, body, method, params, additionalParams
-*/
-function awsRequest(config) {
-  return new Promise((resolve, reject) => {
-    AWS.config.credentials.get(() => {
-      const apigClient = apigClientFactory.newClient({
-        invokeUrl: config['invokeUrl'],
-        accessKey: AWS.config.credentials.accessKeyId,
-        secretKey: AWS.config.credentials.secretAccessKey,
-        sessionToken: AWS.config.credentials.sessionToken,
-      });
 
-      apigClient.invokeApi(config['params'], config['endpoint'], config['method'], config['additionalParams'], config['body'])
-      .then((response) => {
-        resolve(response);
-      }).catch((response) => {
-        reject(response);
-      });
-    });
-  });
-}
