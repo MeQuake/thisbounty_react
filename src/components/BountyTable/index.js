@@ -34,9 +34,21 @@ export default class Table extends React.Component {
     return `<i class='fa fa-flag' aria-hidden='true' alt='Claim' data-bountyId='${cell}'></i>`;
   }
 
-  render() {
+  createCustomInsertButton = (onClick) => {
     return (
-      <BootstrapTable data={ this.state.data } insertRow={true} striped hover>
+      <InsertButton
+      btnText='Insert'
+      className='table-insert-bounty'
+      style={{display:'none'}}/>
+    );
+  }
+
+  render() {
+    const options = {
+      insertBtn: this.createCustomInsertButton
+    };
+    return (
+      <BootstrapTable data={ this.state.data } options={ options } insertRow striped hover>
       <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
       <TableHeaderColumn dataField="title">Name</TableHeaderColumn>
       <TableHeaderColumn dataField="description">Descr</TableHeaderColumn>
