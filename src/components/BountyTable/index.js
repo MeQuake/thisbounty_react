@@ -33,7 +33,8 @@ export default class Table extends React.Component {
   }
 
   actionFormatter(cell) {
-    return `<i class='fa fa-flag' aria-hidden='true' alt='Claim' data-bountyId='${cell}'></i>`;
+    return `<a data-bountyId='${cell}' href="#"><i class='icon-moneybag' aria-hidden='true' alt='Claim'></i></a>
+<a data-bountyId='${cell}' href="#"><i class='fa fa-flag' aria-hidden='true' alt='Flag'></i></a>`;
   }
 
   render() {
@@ -46,7 +47,7 @@ export default class Table extends React.Component {
       <TableHeaderColumn dataField="claim">Claims</TableHeaderColumn>
       <TableHeaderColumn dataField="review">Reviewing</TableHeaderColumn>
       <TableHeaderColumn dataField="tools">Resources</TableHeaderColumn>
-      <TableHeaderColumn dataField="action" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
+      <TableHeaderColumn dataField="id" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
 
