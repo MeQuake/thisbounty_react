@@ -41,13 +41,13 @@ export default class Table extends React.Component {
     return (
       <BootstrapTable data={ this.state.data } insertRow={true} striped hover>
       <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
-      <TableHeaderColumn dataField="title" columnClassName="BountyTable-nameColumn">Name</TableHeaderColumn>
-      <TableHeaderColumn dataField="description" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
-      <TableHeaderColumn dataField="price" columnClassName="BountyTable-priceColumn">Price</TableHeaderColumn>
-      <TableHeaderColumn dataField="claim" columnClassName="BountyTable-claimColumn">Claims</TableHeaderColumn>
-      <TableHeaderColumn dataField="review" columnClassName="BountyTable-reviewColumn">Reviewing</TableHeaderColumn>
-      <TableHeaderColumn dataField="tools" columnClassName="BountyTable-toolsColumn">Resources</TableHeaderColumn>
-      <TableHeaderColumn dataField="id" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
+      <TableHeaderColumn dataField="title" className="BountyTable-nameHeader" columnClassName="BountyTable-nameColumn">Name</TableHeaderColumn>
+      <TableHeaderColumn dataField="description" className="BountyTable-descriptionHeader" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
+      <TableHeaderColumn dataField="price" className="BountyTable-priceHeader" columnClassName="BountyTable-priceColumn">Price</TableHeaderColumn>
+      <TableHeaderColumn dataField="claim" className="BountyTable-claimHeader" columnClassName="BountyTable-claimColumn">Claims</TableHeaderColumn>
+      <TableHeaderColumn dataField="review" className="BountyTable-reviewHeader" columnClassName="BountyTable-reviewColumn">Reviewing</TableHeaderColumn>
+      <TableHeaderColumn dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn">Resources</TableHeaderColumn>
+      <TableHeaderColumn dataField="id" className="BountyTable-actionsHeader" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
 
