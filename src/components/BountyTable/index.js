@@ -41,13 +41,13 @@ export default class Table extends React.Component {
     return (
       <BootstrapTable data={ this.state.data } insertRow={true} striped hover>
       <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
-      <TableHeaderColumn dataField="title">Name</TableHeaderColumn>
-      <TableHeaderColumn dataField="description">Descr</TableHeaderColumn>
-      <TableHeaderColumn dataField="price">Price</TableHeaderColumn>
-      <TableHeaderColumn dataField="claim">Claims</TableHeaderColumn>
-      <TableHeaderColumn dataField="review">Reviewing</TableHeaderColumn>
-      <TableHeaderColumn dataField="tools">Resources</TableHeaderColumn>
-      <TableHeaderColumn dataField="id" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
+      <TableHeaderColumn dataField="title" columnClassName="BountyTable-nameColumn">Name</TableHeaderColumn>
+      <TableHeaderColumn dataField="description" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
+      <TableHeaderColumn dataField="price" columnClassName="BountyTable-priceColumn">Price</TableHeaderColumn>
+      <TableHeaderColumn dataField="claim" columnClassName="BountyTable-claimColumn">Claims</TableHeaderColumn>
+      <TableHeaderColumn dataField="review" columnClassName="BountyTable-reviewColumn">Reviewing</TableHeaderColumn>
+      <TableHeaderColumn dataField="tools" columnClassName="BountyTable-toolsColumn">Resources</TableHeaderColumn>
+      <TableHeaderColumn dataField="id" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
 
