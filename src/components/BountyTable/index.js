@@ -32,20 +32,27 @@ export default class Table extends React.Component {
     });
   }
 
+  nameFormatter(cell, row) {
+    return `<a data-bountyId='${row.id}' href="#"><i class='fa fa-bookmark' aria-hidden='true' alt='Bookmark'></i></a>&nbsp;<a href="#">${cell}</a>`;
+  }
+
+  priceFormatter(cell) {
+    return `&#36;${cell}`
+  }
+
   actionFormatter(cell) {
-    return `<a data-bountyId='${cell}' href="#"><i class='icon-moneybag' aria-hidden='true' alt='Claim'></i></a>
-<a data-bountyId='${cell}' href="#"><i class='fa fa-flag' aria-hidden='true' alt='Flag'></i></a>`;
+    return `<a data-bountyId='${cell}' href="#"><i class='fa fa-close' aria-hidden='true' alt='Delete'></i></a>
+<a data-bountyId='${cell}' href="#"><i class='fa fa-flag' aria-hidden='true' alt='Flag'></i></a>
+<a data-bountyId='${cell}' href="#"><i class='icon-moneybag' aria-hidden='true' alt='Claim'></i></a>`;
   }
 
   render() {
     return (
-      <BootstrapTable data={ this.state.data } insertRow={true} striped hover>
-      <TableHeaderColumn isKey dataField="date">Date</TableHeaderColumn>
-      <TableHeaderColumn dataField="title" className="BountyTable-nameHeader" columnClassName="BountyTable-nameColumn">Name</TableHeaderColumn>
+      <BootstrapTable data={ this.state.data } insertRow={true} hover tableHeaderClass="BountyTable-header" options = {{insertText:"+"}} search>
+      <TableHeaderColumn isKey dataField="date" className="BountyTable-dateHeader" columnClassName="BountyTable-dateColumn">Date</TableHeaderColumn>
+      <TableHeaderColumn dataField="title" className="BountyTable-nameHeader" columnClassName="BountyTable-nameColumn" dataFormat={ this.nameFormatter }>Name</TableHeaderColumn>
       <TableHeaderColumn dataField="description" className="BountyTable-descriptionHeader" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
-      <TableHeaderColumn dataField="price" className="BountyTable-priceHeader" columnClassName="BountyTable-priceColumn">Price</TableHeaderColumn>
-      <TableHeaderColumn dataField="claim" className="BountyTable-claimHeader" columnClassName="BountyTable-claimColumn">Claims</TableHeaderColumn>
-      <TableHeaderColumn dataField="review" className="BountyTable-reviewHeader" columnClassName="BountyTable-reviewColumn">Reviewing</TableHeaderColumn>
+      <TableHeaderColumn dataField="price" className="BountyTable-priceHeader" columnClassName="BountyTable-priceColumn" dataFormat={ this.priceFormatter }>Price</TableHeaderColumn>
       <TableHeaderColumn dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn">Resources</TableHeaderColumn>
       <TableHeaderColumn dataField="id" className="BountyTable-actionsHeader" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
