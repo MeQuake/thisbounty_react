@@ -2,6 +2,7 @@ import React from 'react';
 import AWS from 'aws-sdk';
 import apigClientFactory from 'aws-api-gateway-client';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import InsertModal from './InsertModal/index';
 
 require('./index.css');
 require('./fa.min.js');

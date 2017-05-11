@@ -6,7 +6,7 @@ import login from '../../utilities/thisbountyApi/index.min';
  * Add a bounty via remote API
  *
  */
-function addBounty() {
+export default function addBounty() {
   login().then(() => {
     const body = {
         title:document.getElementById('title').value,
