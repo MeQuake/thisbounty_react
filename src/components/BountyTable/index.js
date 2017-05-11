@@ -33,7 +33,17 @@ export default class Table extends React.Component {
   }
 
   nameFormatter(cell, row) {
-    return `<a data-bountyId='${row.id}' href="#"><i class='fa fa-bookmark' aria-hidden='true' alt='Bookmark'></i></a>&nbsp;<a href="#">${cell}</a>`;
+    return `<div><a data-bountyId='${row.id}' href="#"><i class='fa fa-bookmark' aria-hidden='true' alt='Bookmark'></i></a>&nbsp;<a href="#">${cell}</a></div>
+<div class="tags">
+  <div class="tag">
+    <i class="fa fa-money"></i>Paid
+  </div>
+
+  <div class="tag">
+    <i class="fa fa-user"></i>Member
+  </div>
+</div>
+    `;
   }
 
   priceFormatter(cell) {

@@ -4,7 +4,7 @@
 
 @media(max-width: 960px)
   table tr
-    height:90px;
+    height:110px;
 
   .BountyTable-dateHeader, .BountyTable-dateColumn, .BountyTable-descriptionHeader, .BountyTable-descriptionColumn, .BountyTable-toolsHeader, .BountyTable-toolsColumn, .BountyTable-header
     display: none
@@ -74,6 +74,23 @@
     font-weight: bold
     font-family: 'Lato', sans-serif
     width: 80%
+
+  .tags
+    margin-top:10px
+
+  .tag
+    text-align: center
+    float: left
+    font-size: 0.7em
+    margin: 10px 10px 0 10px
+    color: #AAA
+
+  .tag i
+    font-size: 1.4em
+    display: block
+    font-shadow: 2px 2px #000
+
+
 
 .react-bs-table-container .react-bs-table-search-form
   margin-bottom: 0
