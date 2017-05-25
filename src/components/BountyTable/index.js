@@ -34,17 +34,19 @@ export default class Table extends React.Component {
   }
 
   nameFormatter(cell, row) {
-    return `<div><a data-bountyId='${row.id}' href="#"><i class='fa fa-bookmark' aria-hidden='true' alt='Bookmark'></i></a>&nbsp;<a href="#">${cell}</a></div>
-<div class="tags">
-  <div class="tag">
-    <i class="fa fa-money"></i>Paid
-  </div>
+    return `<div><a data-bountyId='${row.id}' href="#"><i class='fa fa-bookmark' aria-hidden='true' alt='Bookmark'></i></a>&nbsp;<a href="#">${cell}</a></div>`;
+  }
 
-  <div class="tag">
-    <i class="fa fa-user"></i>Member
-  </div>
-</div>
-    `;
+  toolsFormatter(cell) {
+    return `<div class="tags">
+      <div class="tag">
+        <i class="fa fa-money"></i>Paid
+      </div>
+
+      <div class="tag">
+        <i class="fa fa-user"></i>Member
+      </div>
+    </div>`;
   }
 
   priceFormatter(cell) {
@@ -95,7 +97,7 @@ export default class Table extends React.Component {
       <TableHeaderColumn dataField="title" className="BountyTable-nameHeader" columnClassName="BountyTable-nameColumn" dataFormat={ this.nameFormatter }>Name</TableHeaderColumn>
       <TableHeaderColumn dataField="description" className="BountyTable-descriptionHeader" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
       <TableHeaderColumn dataField="price" className="BountyTable-priceHeader" columnClassName="BountyTable-priceColumn" dataFormat={ this.priceFormatter }>Price</TableHeaderColumn>
-      <TableHeaderColumn dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn">Resources</TableHeaderColumn>
+      <TableHeaderColumn dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn" dataFormat={ this.toolsFormatter }>Resources</TableHeaderColumn>
       <TableHeaderColumn hiddenOnInsert dataField="id" className="BountyTable-actionsHeader" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
