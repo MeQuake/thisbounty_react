@@ -38,15 +38,13 @@ export default class Table extends React.Component {
   }
 
   toolsFormatter(cell) {
-    return `<div class="tags">
-      <div class="tag">
-        <i class="fa fa-money"></i>Paid
-      </div>
+    let tags = [];
+    for (var prop in cell) {
+      let fa_class = "fa fa-" + prop;
+      tags.push(<div className="tag"><a href={cell[prop]}><i className={fa_class}></i></a>{prop}</div>);
+    }
 
-      <div class="tag">
-        <i class="fa fa-user"></i>Member
-      </div>
-    </div>`;
+    return (<div className="tags">{tags}</div>);
   }
 
   priceFormatter(cell) {
@@ -93,11 +91,11 @@ export default class Table extends React.Component {
 
     return (
       <BootstrapTable data={ this.state.data } insertRow hover tableHeaderClass="BountyTable-header" options={ options } search>
-      <TableHeaderColumn hiddenOnInsert isKey dataField="date" autoValue={ this.getCurrentDate } className="BountyTable-dateHeader" columnClassName="BountyTable-dateColumn">Date</TableHeaderColumn>
+      <TableHeaderColumn hiddenOnInsert dataField="date" autoValue={ this.getCurrentDate } className="BountyTable-dateHeader" columnClassName="BountyTable-dateColumn">Date</TableHeaderColumn>
       <TableHeaderColumn dataField="title" className="BountyTable-nameHeader" columnClassName="BountyTable-nameColumn" dataFormat={ this.nameFormatter }>Name</TableHeaderColumn>
       <TableHeaderColumn dataField="description" className="BountyTable-descriptionHeader" columnClassName="BountyTable-descriptionColumn">Descr</TableHeaderColumn>
       <TableHeaderColumn dataField="price" className="BountyTable-priceHeader" columnClassName="BountyTable-priceColumn" dataFormat={ this.priceFormatter }>Price</TableHeaderColumn>
-      <TableHeaderColumn dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn" dataFormat={ this.toolsFormatter }>Resources</TableHeaderColumn>
+      <TableHeaderColumn isKey dataField="tools" className="BountyTable-toolsHeader" columnClassName="BountyTable-toolsColumn" dataFormat={ this.toolsFormatter }>Resources</TableHeaderColumn>
       <TableHeaderColumn hiddenOnInsert dataField="id" className="BountyTable-actionsHeader" columnClassName="BountyTable-actionsColumn" dataFormat={ this.actionFormatter }>Actions</TableHeaderColumn>
       </BootstrapTable>
     );
