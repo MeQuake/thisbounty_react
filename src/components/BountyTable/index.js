@@ -64,7 +64,11 @@ export default class Table extends React.Component {
       }
       else {
         console.log('User is not logged in.');
-        login();
+        login().then(() => {
+          onClick();
+        }, () => {
+          console.log("login error (add_bounty)");
+        });
       }
     });
   }
