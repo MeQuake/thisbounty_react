@@ -24,7 +24,6 @@ export default class Table extends React.Component {
       params:{},
       additionalParams:{},
     }).then((response) => {
-      console.log(response);
       this.setState({
         data: response.data
       });
@@ -57,6 +56,28 @@ export default class Table extends React.Component {
 <a data-bountyId='${cell}' href="#"><i class='icon-moneybag' aria-hidden='true' alt='Claim'></i></a>`;
   }
 
+  handleInsertButtonClick = (onClick) => {
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        console.log('User is logged in.');
+        onClick();
+      }
+      else {
+        console.log('User is not logged in.');
+        login();
+      }
+    });
+  }
+
+  createCustomInsertButton = (onClick) => {
+    return (
+      <InsertButton
+      btnText='+'
+      className='btn btn-info react-bs-table-add-btn'
+      onClick={ () => this.handleInsertButtonClick(onClick) }/>
+    );
+  }
+
   onAfterInsertRow(row) {
     let newRowStr = '';
 
@@ -85,7 +106,7 @@ export default class Table extends React.Component {
 
   render() {
     const options = {
-      insertText: "+",
+      insertBtn: this.createCustomInsertButton,
       afterInsertRow: this.onAfterInsertRow
     };
 
